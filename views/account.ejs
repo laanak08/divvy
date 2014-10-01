@@ -48,6 +48,9 @@ weekday[6] = "Saturday";
 
       <div class="col-lg-8">
 
+        <div id="venn-schedule" class="venn"></div>
+
+        <h2>Personal Details:</h2>
         <form role="form" id="edit-user-form" action="/update" method="POST">
 
           <input type="text" name="name" placeholder="Name" value="<%= user.name || '' %>" />
@@ -107,6 +110,7 @@ weekday[6] = "Saturday";
     <% } %>
   </script>
 
+
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="/js/bootstrap.min.js" type="text/javascript"></script>
   <script src="/js/bootstrap-multiselect.js" type="text/javascript"></script>
@@ -115,6 +119,18 @@ weekday[6] = "Saturday";
     $(document).ready(function() {
       $('.multiselect').multiselect();
     });
+  </script>
+
+  <script>
+      config = {
+          apikey: "4650ffd48ab8b077eccb",
+          userid: "KDSJKDSLJFDS0980990890833"
+      }
+      function vennLoaded(){
+          /* anything you want to do after widget has loaded */
+      };
+
+      var script = document.createElement('script'); script.onload = function() {Venn.init(function() {Venn.api('schedule.js', { userid: config.userid, apikey: config.apikey }, "GET", function(response) {document.getElementById('venn-schedule').innerHTML = response.data; Venn.scheduleLoaded(); vennLoaded(); }); }); }; script.src = "//api.getvenn.io/v1/sdk.js?userid="+config.userid+"&apikey="+config.apikey; document.getElementsByTagName('head')[0].appendChild(script);
   </script>
 </body>
 </html>

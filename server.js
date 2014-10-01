@@ -32,7 +32,8 @@ rclient.on("error", function (err) {
 //Logic.buildTrends(rclient, skills);
 
 // all environments
-app.set('port', 80);
+app.set('port', 3000);
+// app.set('port', 80);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(cookieParser()); // required before session.

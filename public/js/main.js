@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
-  var host = "http://54.86.63.60:80";
+  var host = "http://localhost:3000";
+  // var host = "http://54.86.63.60:80";
   var socket = io.connect(host);
 
   socket.on('postmade', function(post) {
