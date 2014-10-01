@@ -7,6 +7,8 @@ Dependencies
 ------------
 * Redis
 * Mongo
+* Bootstrap
+* Less
   
 Installation
 -------------
